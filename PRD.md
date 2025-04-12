@@ -18,7 +18,7 @@ This document outlines the requirements for a read-only Flutter mobile applicati
 
 **4. Functional Requirements**
 
-* **Data Fetching:** The app shall periodically fetch data from the existing backend endpoint `localhost:3000/stop` every 10 seconds.
+* **Data Fetching:** The app shall periodically fetch data from the existing backend endpoint `localhost:8080/stop` every 10 seconds.
 * **Real-time Updates:** The UI shall automatically update with the latest data received from the backend.
 * **Header Display:** The app shall display a static header with the text "Czyżyny".
 * **Time and Date Display:** The app shall display the current time and date, updated in real-time. This information is not provided by the current backend endpoint and will need to be generated locally within the app.
@@ -39,7 +39,7 @@ This document outlines the requirements for a read-only Flutter mobile applicati
 
 **6. Backend API Specification (Existing)**
 
-* **Endpoint:** `localhost:3000/stop`
+* **Endpoint:** `localhost:8080/stop`
 * **Method:** `GET`
 * **Response Format:** `JSON`
 * **Response Data:** The JSON response contains the following information:
@@ -63,7 +63,6 @@ This document outlines the requirements for a read-only Flutter mobile applicati
 
 **7. UI Design Considerations**
 
-* The UI should closely resemble the provided image in terms of layout and information presentation.
 * Use clear and legible fonts.
 * Employ a color scheme that provides good contrast.
 * The city center icon should be easily recognizable.
@@ -72,10 +71,3 @@ This document outlines the requirements for a read-only Flutter mobile applicati
 **8. Technology Stack**
 
 * **Frontend:** Flutter
-
-**9. Future Considerations (Out of Scope for Initial Release)**
-
-* Displaying information for other stops.
-* Providing more detailed route information.
-* User customization of displayed information.
-* Push notifications for service disruptions.
