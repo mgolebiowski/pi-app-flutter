@@ -1,4 +1,4 @@
-package com.example.czyzyny_trams
+package me.golebiowski.czyzyny_trams
 
 import io.flutter.embedding.android.FlutterActivity
 

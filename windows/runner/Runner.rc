@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "me.golebiowski" "\0"
             VALUE "FileDescription", "czyzyny_trams" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "czyzyny_trams" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 me.golebiowski. All rights reserved." "\0"
             VALUE "OriginalFilename", "czyzyny_trams.exe" "\0"
             VALUE "ProductName", "czyzyny_trams" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
