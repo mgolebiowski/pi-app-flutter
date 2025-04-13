@@ -171,8 +171,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  
-
   Widget _buildTramList() {
     if (_stopData.trams.isEmpty) {
       return const Center(
@@ -180,13 +178,18 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
 
-    return ListView.separated(
-      padding: const EdgeInsets.all(16.0),
+    // Use a compact ListView to show more trams vertically
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       itemCount: _stopData.trams.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 8),
+      // Reduce item spacing to fit more items
+      itemExtent: 60, // Fixed height for each item to fit more trams
       itemBuilder: (context, index) {
         final tram = _stopData.trams[index];
-        return _buildTramCard(tram);
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2.0),
+          child: _buildTramCard(tram),
+        );
       },
     );
   }
@@ -194,17 +197,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildTramCard(Tram tram) {
     return Card(
       elevation: 2,
+      margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
         child: Row(
           children: [
-            // Line number circle
+            // Line number circle - made smaller
             Container(
-              width: 50,
-              height: 50,
+              width: 36,
+              height: 36,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.blue[700],
@@ -215,38 +219,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: 18,
                 ),
               ),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: 8),
             // Direction and city center indicator
             Expanded(
               child: Row(
                 children: [
                   if (tram.isTripToCityCenter) 
                     const Padding(
-                      padding: EdgeInsets.only(right: 8.0),
-                      child: Icon(Icons.location_city, color: Colors.blue),
+                      padding: EdgeInsets.only(right: 4.0),
+                      child: Icon(Icons.location_city, color: Colors.blue, size: 16),
                     ),
                   Expanded(
                     child: Text(
                       tram.direction,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 4),
             // ETA in minutes
             Text(
               tram.etaString,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: tram.isImminentArrival ? Colors.red : Colors.green[700],
               ),
